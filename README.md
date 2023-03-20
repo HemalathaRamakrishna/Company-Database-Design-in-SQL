@@ -150,5 +150,11 @@ INSERT INTO EMPLOYEE_PROJECT_ASSIGNMENT (ep_emp_id, ep_proj_id, ep_hours) VALUES
 INSERT INTO EMPLOYEE_PROJECT_ASSIGNMENT (ep_emp_id, ep_proj_id, ep_hours) VALUES (6, 346, 10);
 
 Insert values to department location
-INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (1, 'Los Angeles'); INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (1, 'Texas'); INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (2, 'Los Angeles'); INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (3, 'New York'); INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (4, 'Texas'); INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (5, 'New York'); INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (5, 'Los Angeles');
+INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (1, 'Los Angeles');
+INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (1, 'Texas'); 
+INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (2, 'Los Angeles'); 
+INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (3, 'New York'); 
+INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (4, 'Texas'); 
+INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (5, 'New York'); 
+INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (5, 'Los Angeles');
 ```
