@@ -1,8 +1,11 @@
 # Company-Database-Design-in-SQL
 This project is performing database designing for an organization in SQL, "The COMPANY" that has offices in several locations. This design will help the company to maintain and keep track of their employees, departments, projects (In-house and Outsource), cost and revenue of the project. 
 
-## The below ER diagram displays the .
+## ER diagram 
+<img width="527" alt="er" src="https://user-images.githubusercontent.com/122247029/226240592-90835ede-0f73-4f47-804c-498fa53ef3fd.PNG">
 
+## Referential Integrity Constraints
+<img width="572" alt="reffff" src="https://user-images.githubusercontent.com/122247029/226240638-598b1aef-f5b0-408f-b584-da628e6ac777.PNG">
 
 **Database Creation**
 ```
