@@ -1,5 +1,5 @@
 # Company-Database-Design-in-SQL
-This project is a database design implementation using SQL for a company's database management.
+This project is performing database designing for an organization in SQL, "The COMPANY" that has offices in several locations. This design will help the company to maintain and keep track of their employees, departments, projects (In-house and Outsource), cost and revenue of the project. 
 
 ## The below ER diagram displays the .
 
