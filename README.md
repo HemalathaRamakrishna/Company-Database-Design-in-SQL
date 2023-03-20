@@ -161,3 +161,51 @@ INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (4, 'Texas');
 INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (5, 'New York'); 
 INSERT INTO DEPARTMENT_LOCATION (dept_id, dept_location) VALUES (5, 'Los Angeles');
 ```
+**PL/SQL Statement blocks**
+```
+(The below iterates from one through max of empid to find the list of empid’s that have been deleted) 
+CREATE OR REPLACE FUNCTION Check_deleted_employees RETURN VARCHAR IS max_emp_id number(5) := 0; deleted_employees VARCHAR(256) :=''; emp_counter number(5) :=1; emp_count number(5) :=0; BEGIN
+SELECT MAX(emp_id) into max_emp_id
+FROM EMPLOYEE; WHILE emp_counter <= max_emp_id LOOP
+SELECT COUNT(emp_id) INTO emp_count
+FROM EMPLOYEE
+WHERE emp_id = emp_counter; IF emp_count = 0 THEN deleted_employees := concat(concat(deleted_employees, ' ' ), TO_CHAR(emp_counter)); END IF; emp_counter := emp_counter + 1; END LOOP; RETURN deleted_employees; END; 
+
+(The below code indicates if a supervisor exists or not for a particular employee and gives the output as 0:
+if a supervisor does not exist and 1: if a supervisor exists) 
+CREATE OR REPLACE FUNCTION check_supervisor_status (in_emp_id IN employee.emp_id%TYPE) RETURN NUMBER IS supervisor_id NUMBER := 0; BEGIN
+SELECT emp_supervisor_id INTO supervisor_id
+FROM employee
+WHERE emp_id = in_emp_id; IF supervisor_id != 0 THEN RETURN 1; ELSE RETURN 0; END IF;
+END check_supervisor_status;
+```
+
+**ORDB Command**
+```
+Create Object Types
+CREATE OR REPLACE TYPE address AS OBJECT
+(apartment VARCHAR(32),
+street_num NUMBER,
+street_name VARCHAR(50),
+city_name VARCHAR(50),
+state CHAR(2),
+zip NUMBER);
+
+Create a table using object types
+CREATE TABLE EMPLOYEE ( emp_id INT NOT NULL, emp_ssn VARCHAR(11) NOT
+NULL, emp_name VARCHAR(64) NOT NULL, emp_sex VARCHAR(1) NOT NULL,
+emp_dob DATE NOT NULL, emp_address address, emp_dept_id INT NOT NULL,
+emp_supervisor_id INT, emp_salary INT,
+PRIMARY KEY (emp_id), FOREIGN KEY (emp_dept_id) REFERENCES DEPARTMENT(dept_id),
+FOREIGN KEY (emp_supervisor_id) REFERENCES EMPLOYEE(emp_id)
+);
+
+Create a function
+CREATE OR REPLACE TYPE BODY address AS
+MEMBER FUNCTION get_full_address
+RETURN VARCHAR2 IS
+BEGIN
+RETURN(street_num || ' ' || street_name || ', #' || apartment || ', ' || city_name || ', ' || state || ' ' || zip);
+END get_full_address;
+END; 
+```
